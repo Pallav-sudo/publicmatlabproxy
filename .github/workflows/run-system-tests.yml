@@ -60,13 +60,15 @@ jobs:
 
       # - name: Ensure browsers are installed for playwright
       #   run: python3 -m playwright install --with-deps
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
-      - name: Install playwright browsers
-        working-directory: ./tests/system-tests
-        run: |
-          npm init playwright@latest
-          # npx playwright install --with-deps
-          # npx playwright install
+      # - name: Install playwright browsers
+      #   working-directory: ./tests/system-tests
+      #   run: |
+      #     npm init playwright@latest
+      #     # npx playwright install --with-deps
+      #     # npx playwright install
 
       - name: Find an available port
         run: |

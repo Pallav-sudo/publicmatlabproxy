@@ -63,7 +63,9 @@ jobs:
 
       - name: Install playwright browsers
         working-directory: ./tests/system-tests
-        run: npx playwright install --with-deps
+        run: |
+          npx playwright install --with-deps
+          npx playwright install
 
       - name: Find an available port
         run: |

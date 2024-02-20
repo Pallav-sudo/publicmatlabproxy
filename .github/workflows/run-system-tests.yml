@@ -6,7 +6,7 @@ name: System testing for MATLAB Proxy
 on:
     push:
         branches:
-            - system-tests
+            - main
     workflow_dispatch:
 jobs:
   playwright_e2e_tests:
@@ -54,20 +54,19 @@ jobs:
           python3 -m pip install wheel
           python3 -m pip install .[dev]
 
-      # - name: Install playwright dependency
-      #   working-directory: ./tests/system-tests
-      #   run: npm install playwright
-
-      # - name: Ensure browsers are installed for playwright
-      #   run: python3 -m playwright install --with-deps
-      # - name: Install Playwright Browsers
-      #   run: npx playwright install --with-deps
+      - name: Install playwright dependency
+        working-directory: ./tests/system-tests
+        run: npm install playwright
 
       - name: Install playwright browsers
-        # working-directory: ./tests/system-tests
-        run: |
-          npx playwright install --with-deps
-      #     # npx playwright install
+        working-directory: ./tests/system-tests
+        run: npx playwright install --with-deps
+
+      # - name: Install playwright browsers
+      #   # working-directory: ./tests/system-tests
+      #   run: |
+      #     npx playwright install --with-deps
+      # #     # npx playwright install
 
       - name: Find an available port
         run: |

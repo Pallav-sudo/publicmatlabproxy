@@ -1,0 +1,14 @@
+name: MATLAB CI
+
+on: workflow_dispatch
+
+jobs:
+  run-matlab-command:
+    name: Run MATLAB Command
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run MATLAB Command
+      uses: matlab-actions/run-command@v2
+      with:
+        command: 'disp("Hello, World!")'
